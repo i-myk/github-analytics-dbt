@@ -22,6 +22,17 @@ The final models are optimized for reporting and analytics, providing reliable d
 - **Version Control:** Git & GitHub
 - **Source Data:** GitHub API
 
+## Business Metrics
+
+The analytical models provide repository performance insights through the following KPIs:
+
+- **Total Commits** – Overall development activity.
+- **Active Contributors** – Number of developers contributing.
+- **Repository Activity** – Daily repository engagement.
+- **Daily Commits** – Commits by date.
+- **7-Day Moving Average** – Smooths daily fluctuations to identify trends.
+- **Repository Performance** – Overall repository health and activity.
+
 ## Architecture
 
 The project follows a modern layered dbt architecture that separates data transformations into three logical layers.
@@ -238,7 +249,9 @@ dbt docs serve
 
 The final dbt mart models are used in Looker Studio to visualize repository activity, commit trends, contributors, and repository performance.
 
-👉 **[View the Live Looker Studio Dashboard](https://datastudio.google.com/reporting/7478f0af-71f2-464e-accb-4e4e010b19a9)**
+## 🚀 Live Dashboard
+
+[Open Looker Studio Dashboard](https://datastudio.google.com/reporting/7478f0af-71f2-464e-accb-4e4e010b19a9)**
 
 
 ## Key Features
