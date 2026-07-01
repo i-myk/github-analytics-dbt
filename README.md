@@ -13,6 +13,7 @@ This project demonstrates how to transform raw GitHub data into clean, reusable 
 
 The final models are optimized for reporting and analytics, providing reliable datasets for repository activity, commit trends, and user insights.
 
+
 ## Tech Stack
 
 - **Data Warehouse:** Google BigQuery
@@ -21,6 +22,7 @@ The final models are optimized for reporting and analytics, providing reliable d
 - **Data Ingestion:** Fivetran
 - **Version Control:** Git & GitHub
 - **Source Data:** GitHub API
+
 
 ## Business Metrics
 
@@ -32,6 +34,7 @@ The analytical models provide repository performance insights through the follow
 - **Daily Commits** – Commits by date.
 - **7-Day Moving Average** – Smooths daily fluctuations to identify trends.
 - **Repository Performance** – Overall repository health and activity.
+
 
 ## Architecture
 
@@ -50,6 +53,7 @@ The project follows a modern layered dbt architecture that separates data transf
 | **Staging** | Cleans and standardizes raw GitHub data | View |
 | **Intermediate** | Applies reusable business logic and transformations | View |
 | **Marts** | Creates business-ready fact and dimension tables | Table |
+
 
 
 ## Project Structure
@@ -91,7 +95,9 @@ The project is organized using dbt best practices with separate staging, interme
 └── README.md
 ```
 
+
 ## Data Models
+
 
 ### Staging Layer
 
@@ -103,6 +109,7 @@ The staging layer standardizes raw GitHub data from BigQuery sources. These mode
 | `stg_github__commit` | Standardizes commit records |
 | `stg_github__user` | Standardizes GitHub user data |
 
+
 ### Intermediate Layer
 
 The intermediate layer contains reusable transformation logic used by final marts.
@@ -111,6 +118,7 @@ The intermediate layer contains reusable transformation logic used by final mart
 |------|---------|
 | `int_github__commit_activity` | Prepares commit activity data for fact models |
 | `int_github__repository_stats` | Prepares repository statistics for downstream marts |
+
 
 ### Marts Layer
 
@@ -124,6 +132,8 @@ The marts layer contains final analytics-ready models used for reporting.
 | `fct_github_commit_activity` | Fact | Commit activity by repository, author, and date |
 | `fct_github_commit_activity_7d` | Fact | Seven-day rolling commit activity |
 | `fct_repo_activity_daily` | Fact | Daily repository activity metrics |
+
+
 
 ## Data Quality & Testing
 
@@ -146,6 +156,7 @@ Key columns tested:
 | `fct_daily_repo_stats` | `created_date` |
 
 
+
 ## Materialization Strategy
 
 The project follows a layered dbt architecture with different materializations for each layer.
@@ -157,6 +168,7 @@ The project follows a layered dbt architecture with different materializations f
 | Marts | Table | Analytics-ready models optimized for reporting performance and dashboard queries. |
 
 This approach keeps the transformation pipeline modular, reduces storage costs, and improves query performance for BI tools.
+
 
 ## Data Flow
 
@@ -181,6 +193,7 @@ Dimension & Fact Models (Tables)
 Analytics / BI Dashboards
 ```
 
+
 ### Pipeline Overview
 
 1. GitHub data is loaded into BigQuery raw tables.
@@ -188,6 +201,7 @@ Analytics / BI Dashboards
 3. Intermediate models apply reusable business logic.
 4. Final dimension and fact models create analytics-ready datasets.
 5. BI tools query the marts layer for reporting and visualization.
+
 
 ## dbt Lineage (DAG)
 
@@ -245,6 +259,7 @@ dbt docs serve
 
 ---
 
+
 ## Dashboard Preview
 
 The final dbt mart models are used in Looker Studio to visualize repository activity, commit trends, contributors, and repository performance.
@@ -265,6 +280,7 @@ The final dbt mart models are used in Looker Studio to visualize repository acti
 - GitHub data transformation pipeline
 - Analytics-ready fact and dimension models
 
+
 ## Future Improvements
 
 - Implement incremental models for large datasets
@@ -272,6 +288,7 @@ The final dbt mart models are used in Looker Studio to visualize repository acti
 - Expand data quality tests
 - Integrate CI/CD with GitHub Actions
 - Add dbt exposures and metrics
+
 
 ## Author
 
