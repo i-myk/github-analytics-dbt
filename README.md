@@ -1,5 +1,11 @@
 # GitHub Analytics dbt Project
 
+![dbt](https://img.shields.io/badge/dbt-FF694B?style=for-the-badge&logo=dbt&logoColor=white)
+![BigQuery](https://img.shields.io/badge/BigQuery-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+![Fivetran](https://img.shields.io/badge/Fivetran-007FFF?style=for-the-badge)
+![Looker Studio](https://img.shields.io/badge/Looker_Studio-4285F4?style=for-the-badge)
+![GitHub API](https://img.shields.io/badge/GitHub_API-181717?style=for-the-badge&logo=github)
+
 
 A modern Analytics Engineering project built with **dbt Cloud** and **Google BigQuery**.
 
