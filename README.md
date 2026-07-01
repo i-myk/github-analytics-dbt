@@ -198,7 +198,6 @@ The project uses dbt's dependency graph to organize transformations into a layer
 ![dbt DAG](images/dbt_dag.png)
 
 
-## How to Run
 
 ## How to Run
 
