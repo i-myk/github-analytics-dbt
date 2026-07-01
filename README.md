@@ -36,7 +36,7 @@ The project follows a modern layered dbt architecture that separates data transf
 
 ## Project Structure
 
-```
+```text
 .
 ├── macros/
 ├── models/
