@@ -1,4 +1,4 @@
-# GitHub Analytics dbt Project Analytics
+# GitHub Analytics dbt Project
 
 
 A modern Analytics Engineering project built with **dbt Cloud** and **Google BigQuery**.
