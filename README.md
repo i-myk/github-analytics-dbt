@@ -51,9 +51,10 @@ The project follows a modern layered dbt architecture that separates data transf
 | **Intermediate** | Applies reusable business logic and transformations | View |
 | **Marts** | Creates business-ready fact and dimension tables | Table |
 
-## Project Structure
 
 ## Project Structure
+
+The project is organized using dbt best practices with separate staging, intermediate, and marts layers.
 
 ```text
 .
