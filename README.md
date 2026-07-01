@@ -232,8 +232,7 @@ dbt docs serve
 
 The final dbt mart models are used in Looker Studio to visualize repository activity, commit trends, contributors, and repository performance.
 
-![Looker Studio Dashboard]([images/looker_dashboard.png](https://datastudio.google.com/reporting/7478f0af-71f2-464e-accb-4e4e010b19a9))
-
+👉 **[View the Live Looker Studio Dashboard](https://datastudio.google.com/reporting/7478f0af-71f2-464e-accb-4e4e010b19a9)**
 
 
 ## Key Features
