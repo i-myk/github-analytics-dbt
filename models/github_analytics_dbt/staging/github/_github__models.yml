@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_github__repositories
+    description: "Cleaned GitHub repository data"
+
+    columns:
+      - name: repository_id
+        description: "Unique repository identifier"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_github__user
+    description: "Cleaned GitHub user data"
+
+    columns:
+      - name: user_id
+        description: "Unique user identifier"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_github__commit
+    description: "Cleaned GitHub commit data"
+
+    columns:
+      - name: commit_sha
+        description: "Unique commit identifier"
+        tests:
+          - unique
+          - not_null

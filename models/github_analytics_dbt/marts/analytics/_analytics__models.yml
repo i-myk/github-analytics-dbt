@@ -1,0 +1,69 @@
+version: 2
+
+models:
+  - name: dim_github__repositories
+    description: "Dimension table for GitHub repositories"
+    columns:
+      - name: repository_id
+        description: "Primary key of repository"
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_github__user
+    description: "Dimension table for GitHub users"
+    columns:
+      - name: user_id
+        description: "Primary key of user"
+        tests:
+          - unique
+          - not_null
+
+  - name: fct_daily_repo_stats
+    description: "Daily aggregated repository stats"
+    columns:
+      - name: repository_name
+        description: "Name of the GitHub repository."
+        tests:
+          - not_null
+
+      - name: created_date
+        description: "Date when the repository was created."
+        tests:
+          - not_null
+
+      - name: repo_language
+        description: "Primary programming language of the repository."
+
+      - name: repo_count
+        description: "Number of repositories in the aggregation."
+
+      - name: total_forks
+        description: "Total number of repository forks."
+
+      - name: avg_forks
+        description: "Average number of forks per repository."
+
+  - name: fct_github_commit_activity
+    description: "Commit activity aggregated by repository, author, and date"
+    columns:
+      - name: repository_id
+        description: "Repository ID"
+      - name: author_name
+        description: "Author of commit"
+      - name: commit_date
+        description: "Date of commit"
+      - name: commit_cnt
+        description: "Number of commits"
+
+  - name: fct_repo_activity_daily
+    description: "Daily commit activity by author"
+    columns:
+      - name: stat_date
+        description: "Date of activity"
+        tests:
+          - not_null
+      - name: author_name
+        description: "Commit author"
+      - name: commit_count
+        description: "Number of commits per day"

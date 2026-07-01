@@ -1,0 +1,8 @@
+version: 2
+
+models:
+  - name: int_github__commit_activity
+    description: "Intermediate model containing commit activity aggregated by repository, author, and date"
+
+  - name: int_github__repository_stats
+    description: "Intermediate model containing repository statistics and reusable business metrics"

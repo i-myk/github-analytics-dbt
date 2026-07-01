@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: github_data
+    database: fifth-flash-489402-h9
+    schema: github_data
+    tables:
+    - name: repository
+      description: "Raw GitHub repository data"
+
+    - name: commit
+      description: "Raw GitHub commit data"
+
+    - name: user
+      description: "Raw GitHub user data"
+
+    - name: issue
+      description: "Raw GitHub issue data"
+
+    - name: pull_request
+      description: "Raw GitHub pull request data"
+
+      
