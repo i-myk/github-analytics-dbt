@@ -99,9 +99,12 @@ The project is organized using dbt best practices with separate staging, interme
 ## Data Models
 
 
+
 ### Staging Layer
 
+
 The staging layer standardizes raw GitHub data from BigQuery sources. These models clean column names, select relevant fields, and prepare raw data for downstream transformations.
+
 
 | Model | Purpose |
 |------|---------|
@@ -110,9 +113,12 @@ The staging layer standardizes raw GitHub data from BigQuery sources. These mode
 | `stg_github__user` | Standardizes GitHub user data |
 
 
+
 ### Intermediate Layer
 
+
 The intermediate layer contains reusable transformation logic used by final marts.
+
 
 | Model | Purpose |
 |------|---------|
@@ -120,9 +126,12 @@ The intermediate layer contains reusable transformation logic used by final mart
 | `int_github__repository_stats` | Prepares repository statistics for downstream marts |
 
 
+
 ### Marts Layer
 
+
 The marts layer contains final analytics-ready models used for reporting.
+
 
 | Model | Type | Purpose |
 |------|------|---------|
@@ -135,9 +144,12 @@ The marts layer contains final analytics-ready models used for reporting.
 
 
 
+
 ## Data Quality & Testing
 
+
 The project includes built-in dbt tests to ensure data quality and model reliability.
+
 
 Implemented tests include:
 
@@ -157,7 +169,9 @@ Key columns tested:
 
 
 
+
 ## Materialization Strategy
+
 
 The project follows a layered dbt architecture with different materializations for each layer.
 
@@ -170,7 +184,9 @@ The project follows a layered dbt architecture with different materializations f
 This approach keeps the transformation pipeline modular, reduces storage costs, and improves query performance for BI tools.
 
 
+
 ## Data Flow
+
 
 The project follows a modern ELT workflow using GitHub, BigQuery, and dbt.
 
@@ -194,13 +210,16 @@ Analytics / BI Dashboards
 ```
 
 
+
 ### Pipeline Overview
+
 
 1. GitHub data is loaded into BigQuery raw tables.
 2. dbt staging models clean and standardize the raw data.
 3. Intermediate models apply reusable business logic.
 4. Final dimension and fact models create analytics-ready datasets.
 5. BI tools query the marts layer for reporting and visualization.
+
 
 
 ## dbt Lineage (DAG)
@@ -213,7 +232,9 @@ The project uses dbt's dependency graph to organize transformations into a layer
 
 
 
+
 ## How to Run
+
 
 Clone the repository:
 
@@ -269,7 +290,9 @@ The final dbt mart models are used in Looker Studio to visualize repository acti
 [Open Looker Studio Dashboard](https://datastudio.google.com/reporting/7478f0af-71f2-464e-accb-4e4e010b19a9)**
 
 
+
 ## Key Features
+
 
 - Layered dbt architecture (Staging → Intermediate → Marts)
 - Modular SQL transformations
