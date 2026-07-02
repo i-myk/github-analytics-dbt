@@ -1,12 +1,12 @@
 # GitHub Analytics dbt Project
 
-A Analytics Engineering project built with **dbt Cloud** and **Google BigQuery**.
+An Analytics Engineering project built with **dbt Cloud** and **Google BigQuery**.
 
 This project demonstrates how to transform raw GitHub data into clean, reusable analytical models using a layered dbt architecture. The pipeline follows analytics engineering best practices by separating transformations into staging, intermediate, and marts layers while applying data quality tests and documentation.
 
 The final models are optimized for reporting and analytics, providing reliable datasets for repository activity, commit trends, and user insights.
 
-**The project is developed in dbt Cloud with GitHub integration for version-controlled development and BigQuery as the analytics warehouse.**
+The project is developed in **dbt Cloud** with **GitHub integration**, enabling version-controlled development and seamless deployment of model updates through Git commits.
 
 
 ## Tech Stack
