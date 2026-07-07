@@ -36,6 +36,7 @@ The analytical models provide repository performance insights through the follow
 The dbt project follows a layered architecture that separates transformations into staging, intermediate, and marts layers. This approach improves modularity, maintainability, and reusability of analytical models.
 
 
+
 ![Architecture](images/architecture.png)
 
 
@@ -164,6 +165,7 @@ The GitHub connector synchronizes repository data from the GitHub API into Googl
 
 **Screenshot: GitHub Connector Configuration**
 
+
 ![GitHub Connector Configuration](images/fivetran_connection.png)
 
 ---
@@ -281,6 +283,7 @@ The `github_data` dataset contains raw GitHub tables automatically synchronized 
 These tables remain unchanged and serve as the source layer for all dbt transformations.
 
 
+
 ![BigQuery Dataset](images/bigquery_raw_tables.png)
 
 ---
@@ -298,6 +301,7 @@ The models are organized into three logical layers:
 - **Marts (`dim_` and `fct_`)** – creates analytics-ready dimension and fact tables used for reporting.
 
 This layered approach follows dbt best practices and provides a clean semantic layer for BI reporting in Looker Studio.
+
 
 ![dbt Models in BigQuery](images/dbt_bigquery_models.png)
 
@@ -354,6 +358,7 @@ It provides full visibility into the transformation pipeline and demonstrates ho
 
 **Screenshot:** dbt Lineage
 
+
 ![dbt Lineage](images/dbt_dag.png)
 
 
@@ -363,41 +368,60 @@ It provides full visibility into the transformation pipeline and demonstrates ho
 ---
 
 
+# Step 4: Looker Studio Dashboard
+
+The final dbt mart models are connected directly to Looker Studio to provide interactive reporting on repository activity, contributor performance, and development trends.
+
+---
+
+## Live Dashboard
+
+🚀 **[Open Looker Studio Dashboard](https://datastudio.google.com/reporting/7478f0af-71f2-464e-accb-4e4e010b19a9)**
+
+---
+
 ## Dashboard Preview
 
-The final dbt mart models are used in Looker Studio to visualize repository activity, commit trends, contributors, and repository performance.
 
+![GitHub Analytics Dashboard](images/github_looker_dashboard.png)
 
-![GitHub Analytics Dashboard](images/looker_dashboard.png)
+---
 
-## 🚀 Live Dashboard
+## Dashboard Features
 
-[Open Looker Studio Dashboard](https://datastudio.google.com/reporting/7478f0af-71f2-464e-accb-4e4e010b19a9)**
+The dashboard includes interactive filters and visualizations that allow users to explore repository activity in real time.
 
+### Filters
 
+- Date Range
+- Repository Name
+- Author Name
 
-## Key Features
+### KPI Cards
 
+- Total Commits
+- Total Repositories
+- Active Contributors
+- Peak Daily Commits
 
-- Layered dbt architecture (Staging → Intermediate → Marts)
-- Modular SQL transformations
-- Star schema data modeling
-- Data quality testing with dbt
-- YAML model documentation
-- Google BigQuery integration
-- GitHub data transformation pipeline
-- Analytics-ready fact and dimension models
+### Visualizations
 
+- Commit Activity Trend (7-Day Moving Average)
+- Top Repositories
+- Top Contributors
+- Commits by Weekday
+- Monthly Commit Volume
 
-## Future Improvements
+---
 
-- Implement incremental models for large datasets
-- Add snapshot models to track historical changes
-- Expand data quality tests
-- Integrate CI/CD with GitHub Actions
-- Add dbt exposures and metrics
+## Business Insights
 
+The dashboard helps answer questions such as:
 
-## Author
+- Which repositories receive the most development activity?
+- Who are the most active contributors?
+- How does commit activity change over time?
+- Which weekdays have the highest development activity?
+- What are the overall repository performance trends?
 
-Created by **Igor Mykoliv** as part of an Analytics Engineering portfolio demonstrating dbt and BigQuery best practices.
+The dashboard provides an easy-to-use reporting layer built on top of dbt models, enabling repository monitoring without writing SQL queries.
