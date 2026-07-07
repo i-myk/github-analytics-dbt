@@ -287,6 +287,22 @@ These tables remain unchanged and serve as the source layer for all dbt transfor
 
 
 
+## Screenshot: dbt Models in BigQuery
+
+After the raw GitHub data is loaded into BigQuery, dbt builds analytics-ready models inside the `dbt_imykoliv` dataset.
+
+The models are organized into three logical layers:
+
+- **Staging (`stg_`)** – cleans and standardizes raw GitHub data.
+- **Intermediate (`int_`)** – applies reusable business logic and transformations.
+- **Marts (`dim_` and `fct_`)** – creates analytics-ready dimension and fact tables used for reporting.
+
+This layered approach follows dbt best practices and provides a clean semantic layer for BI reporting in Looker Studio.
+
+![dbt Models in BigQuery](images/dbt_bigquery_models.png)
+
+
+
 
 
 ## Data Quality & Testing
