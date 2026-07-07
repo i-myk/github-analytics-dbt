@@ -363,6 +363,71 @@ It provides full visibility into the transformation pipeline and demonstrates ho
 
 
 
+---
+
+# Git Integration with dbt Cloud
+
+The dbt project was connected directly to a GitHub repository, allowing all SQL models, YAML files, and documentation to be version-controlled.
+
+This integration enables a modern Analytics Engineering workflow where every change is tracked through Git, making development, collaboration, and deployment more reliable.
+
+## GitHub Integration
+
+To configure the project, dbt Cloud was first connected to my GitHub account using the official Git integration.
+
+Once the authentication was completed, the GitHub repository containing the dbt project became available when creating a new dbt Cloud project.
+
+**Screenshot: GitHub Integration in dbt Cloud**
+
+![GitHub Integration](docs/dbt_github_integration.png)
+
+---
+
+## Project Configuration
+
+After connecting GitHub, I created a dbt Cloud project by selecting the repository and configuring BigQuery as the development environment.
+
+The project configuration includes:
+
+- GitHub repository
+- BigQuery development connection
+- dbt project settings
+- Version-controlled development workflow
+
+**Screenshot: dbt Cloud Project Configuration**
+
+![dbt Project Configuration](docs/dbt_project_configuration.png)
+
+---
+
+## Why Git Integration Matters
+
+Connecting dbt Cloud to GitHub provides several advantages:
+
+- Version control for SQL models and YAML files
+- Safe development using Git commits
+- Easy collaboration with other developers
+- Better project organization and reproducible deployments
+- Integration with the modern Analytics Engineering workflow
+
+---
+
+## 💡 Lessons Learned
+
+One of the biggest challenges during this project was connecting dbt Cloud to GitHub.
+
+At first, I assumed this setup would be difficult and expected ChatGPT to provide all the necessary steps. However, I quickly realized that the **official dbt documentation** was the most reliable resource for configuring authentication and repository integration.
+
+This experience reinforced an important lesson:
+
+> AI is a great assistant for learning and troubleshooting, but official product documentation should always be the primary source when configuring production tools and cloud services.
+
+This project also gave me hands-on experience configuring Git integration, managing a dbt Cloud project, and following a version-controlled Analytics Engineering workflow.
+
+
+
+
+
 
 
 ---
