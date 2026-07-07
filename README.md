@@ -439,13 +439,17 @@ The final dbt mart models are connected directly to Looker Studio to provide int
 
 ---
 
-## Live Dashboard
+## 🔗 Live Dashboard
+
+🚀 **Open Interactive Dashboard**
 
 🚀 **[Open Looker Studio Dashboard](https://datastudio.google.com/reporting/7478f0af-71f2-464e-accb-4e4e010b19a9)**
 
 ---
 
 ## Dashboard Preview
+
+The dashboard is fully interactive and supports filtering by repository, contributor, and date range.
 
 
 ![GitHub Analytics Dashboard](images/looker_dashboard.png)
@@ -454,39 +458,35 @@ The final dbt mart models are connected directly to Looker Studio to provide int
 
 ## Dashboard Features
 
-The dashboard includes interactive filters and visualizations that allow users to explore repository activity in real time.
+The dashboard provides interactive exploration of GitHub repository activity.
 
 ### Filters
-
 - Date Range
 - Repository Name
 - Author Name
 
-### KPI Cards
-
+### KPIs
 - Total Commits
 - Total Repositories
 - Active Contributors
 - Peak Daily Commits
 
 ### Visualizations
-
 - Commit Activity Trend (7-Day Moving Average)
-- Top Repositories
 - Top Contributors
+- Top Repositories
 - Commits by Weekday
 - Monthly Commit Volume
 
 ---
 
-## Business Insights
+## Business Questions Answered
 
-The dashboard helps answer questions such as:
+The dashboard helps engineering teams answer questions such as:
 
 - Which repositories receive the most development activity?
 - Who are the most active contributors?
-- How does commit activity change over time?
-- Which weekdays have the highest development activity?
-- What are the overall repository performance trends?
+- How does development activity change over time?
+- Which weekdays have the highest commit volume
 
 The dashboard provides an easy-to-use reporting layer built on top of dbt models, enabling repository monitoring without writing SQL queries.
