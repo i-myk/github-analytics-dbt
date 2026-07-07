@@ -435,13 +435,11 @@ This project also gave me hands-on experience configuring Git integration, manag
 
 # Step 4: Looker Studio Dashboard
 
-The final dbt mart models are connected directly to Looker Studio to provide interactive reporting on repository activity, contributor performance, and development trends.
+The final analytics-ready dbt mart models are connected directly to Looker Studio to provide interactive reporting on repository activity, contributor performance, and development trends.
 
 ---
 
 ## 🔗 Live Dashboard
-
-🚀 **Open Interactive Dashboard**
 
 🚀 **[Open Looker Studio Dashboard](https://datastudio.google.com/reporting/7478f0af-71f2-464e-accb-4e4e010b19a9)**
 
