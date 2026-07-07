@@ -383,7 +383,7 @@ The final dbt mart models are connected directly to Looker Studio to provide int
 ## Dashboard Preview
 
 
-![GitHub Analytics Dashboard](images/github_looker_dashboard.png)
+![GitHub Analytics Dashboard](images/looker_dashboard.png)
 
 ---
 
