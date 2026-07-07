@@ -354,7 +354,7 @@ It provides full visibility into the transformation pipeline and demonstrates ho
 
 **Screenshot:** dbt Lineage
 
-![dbt Lineage](images/dbt_lineage.png)
+![dbt Lineage](images/dbt_dag.png)
 
 
 
