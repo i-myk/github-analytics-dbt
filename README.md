@@ -379,7 +379,7 @@ Once the authentication was completed, the GitHub repository containing the dbt 
 
 **Screenshot: GitHub Integration in dbt Cloud**
 
-![GitHub Integration](docs/dbt_github_integration.png)
+![GitHub Integration](images/dbt_github_integration.png)
 
 ---
 
@@ -396,7 +396,7 @@ The project configuration includes:
 
 **Screenshot: dbt Cloud Project Configuration**
 
-![dbt Project Configuration](docs/dbt_project_configuration.png)
+![dbt Project Configuration](images/dbt_project_configuration.png)
 
 ---
 
