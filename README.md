@@ -139,6 +139,54 @@ The marts layer contains final analytics-ready models used for reporting.
 
 
 
+# Step 1: Data Ingestion with Fivetran
+
+Fivetran was used to automate data ingestion from the GitHub API into Google BigQuery.
+
+The GitHub connector was configured to authenticate with GitHub and perform scheduled incremental synchronizations, automatically loading repository metadata, commits, contributors, issues, pull requests, and other GitHub data into BigQuery.
+
+**Only raw source data was ingested through Fivetran.** 
+All transformations, testing, documentation, and analytics models were implemented separately in dbt.
+
+---
+
+## GitHub Connector Configuration
+
+The GitHub connector synchronizes repository data from the GitHub API into Google BigQuery.
+
+**Configuration includes:**
+
+- Source: GitHub API
+- Destination: Google BigQuery
+- Incremental synchronization
+- Scheduled automatic sync
+- Raw data ingestion only
+
+**Screenshot: GitHub Connector Configuration**
+
+![GitHub Connector Configuration](images/fivetran_connection.png)
+
+---
+
+## Why Quickstart Transformations Were Not Used
+
+Fivetran provides **Quickstart Transformations**, which automatically generate pre-built staging and reporting models for supported data sources.
+
+For this project, these transformations were intentionally **not used**.
+
+Instead, only the **raw GitHub data** was loaded into BigQuery, while the complete transformation layer was developed manually in **dbt**.
+
+This approach provides full control over the transformation logic and demonstrates modern Analytics Engineering best practices by implementing a custom three-layer architecture:
+
+- **Staging** – cleans and standardizes raw source data
+- **Intermediate** – applies reusable business logic and transformations
+- **Marts** – creates analytics-ready fact and dimension models for reporting
+
+Building these layers manually makes the project easier to understand, test, maintain, and scale while showcasing the full Analytics Engineering workflow.
+
+
+
+
 
 ## Data Quality & Testing
 
