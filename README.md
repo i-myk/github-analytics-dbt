@@ -279,6 +279,8 @@ Google BigQuery was selected because it provides:
 
 The `github_data` dataset contains raw GitHub tables automatically synchronized from the GitHub API. 
 These tables remain unchanged and serve as the source layer for all dbt transformations.
+
+
 ![BigQuery Dataset](images/bigquery_raw_tables.png)
 
 ---
