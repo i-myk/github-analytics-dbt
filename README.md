@@ -304,137 +304,59 @@ This layered approach follows dbt best practices and provides a clean semantic l
 
 
 
+# Step 3: dbt Data Transformation
+
+dbt was used to transform raw GitHub data into clean, tested, and analytics-ready models following Analytics Engineering best practices.
+
+The project implements a layered architecture that separates data transformations into staging, intermediate, and marts layers, improving modularity, maintainability, and scalability.
 
 ## Data Quality & Testing
 
+Built-in dbt tests were implemented to validate critical business keys and ensure data reliability.
 
-The project includes built-in dbt tests to ensure data quality and model reliability.
-
-
-Implemented tests include:
+Implemented tests:
 
 - `unique`
 - `not_null`
 
-Key columns tested:
+### Tested Models
 
 | Model | Tested Columns |
-|-------|----------------|
-| `stg_github__repositories` | `repository_id` |
-| `stg_github__user` | `user_id` |
-| `stg_github__commit` | `commit_sha` |
-| `dim_github__repositories` | `repository_id` |
-| `dim_github__user` | `user_id` |
-| `fct_daily_repo_stats` | `created_date` |
+|--------|----------------|
+| stg_github__repositories | repository_id |
+| stg_github__user | user_id |
+| stg_github__commit | commit_sha |
+| dim_github__repositories | repository_id |
+| dim_github__user | user_id |
+| fct_daily_repo_stats | created_date |
 
-
-
+---
 
 ## Materialization Strategy
 
+Different materializations were selected depending on the purpose of each layer.
 
-The project follows a layered dbt architecture with different materializations for each layer.
+| Layer | Materialization | Purpose |
+|--------|-----------------|---------|
+| Staging | View | Lightweight cleaning and standardization |
+| Intermediate | View | Reusable business logic |
+| Marts | Table | Analytics-ready reporting models |
 
-| Layer | Materialization | Reason |
-|--------|-----------------|--------|
-| Staging | View | Lightweight transformations on raw source data without storing additional data. |
-| Intermediate | View | Reusable business logic that feeds downstream models while minimizing storage. |
-| Marts | Table | Analytics-ready models optimized for reporting performance and dashboard queries. |
+This approach minimizes storage costs while optimizing performance for reporting and BI workloads.
 
-This approach keeps the transformation pipeline modular, reduces storage costs, and improves query performance for BI tools.
-
-
-
-## Data Flow
-
-
-The project follows a modern ELT workflow using GitHub, BigQuery, and dbt.
-
-```text
-GitHub API
-      │
-      ▼
-Raw GitHub Tables (BigQuery)
-      │
-      ▼
-Staging Models (Views)
-      │
-      ▼
-Intermediate Models (Views)
-      │
-      ▼
-Dimension & Fact Models (Tables)
-      │
-      ▼
-Analytics / BI Dashboards
-```
-
-
-
-### Pipeline Overview
-
-
-1. GitHub data is loaded into BigQuery raw tables.
-2. dbt staging models clean and standardize the raw data.
-3. Intermediate models apply reusable business logic.
-4. Final dimension and fact models create analytics-ready datasets.
-5. BI tools query the marts layer for reporting and visualization.
-
-
+---
 
 ## dbt Lineage (DAG)
 
-The project uses dbt's dependency graph to organize transformations into a layered architecture. The DAG illustrates how raw GitHub data flows through staging, intermediate, and marts models.
+The lineage graph illustrates dependencies between source tables, staging models, intermediate transformations, and final dimension and fact models.
+
+It provides full visibility into the transformation pipeline and demonstrates how raw GitHub data flows through each modeling layer.
+
+**Screenshot:** dbt Lineage
+
+![dbt Lineage](images/dbt_lineage.png)
 
 
-
-![dbt DAG](images/dbt_dag.png)
-
-
-
-
-## How to Run
-
-
-Clone the repository:
-
-```bash
-git clone https://github.com/i-myk/github-analytics-elt-pipeline.git
-cd github-analytics-elt-pipeline
-
-dbt deps
-dbt build --select github_analytics_dbt
-```
-
-The command builds the complete GitHub Analytics dbt project, including staging, intermediate, and mart models.
-
-
-Install dependencies:
-
-```bash
-dbt deps
-```
-
-
-Build all models and run tests:
-
-```bash
-dbt build
-```
-
-
-Generate documentation:
-
-```bash
-dbt docs generate
-```
-
-
-Launch the documentation site:
-
-```bash
-dbt docs serve
-```
 
 
 
