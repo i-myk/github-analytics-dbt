@@ -186,6 +186,111 @@ Building these layers manually makes the project easier to understand, test, mai
 
 
 
+# Step 2: BigQuery Data Warehouse
+
+After configuring the GitHub connector in Fivetran, all repository data is automatically synchronized into Google BigQuery.
+
+BigQuery serves as the centralized cloud data warehouse where raw GitHub data is stored before being transformed with dbt.
+
+Following modern ELT architecture, no business logic or data transformations are performed during data ingestion. The raw data is preserved in BigQuery, while all cleaning, modeling, testing, and documentation are implemented later in dbt.
+
+---
+
+## BigQuery Dataset
+
+The project uses a dedicated BigQuery dataset to store raw GitHub data loaded by Fivetran.
+
+| Dataset | Purpose |
+|----------|---------|
+| **github_data** | Stores raw GitHub data synchronized directly from the GitHub API through Fivetran. |
+
+---
+
+## Raw GitHub Tables
+
+The dataset contains multiple GitHub entities automatically synchronized by Fivetran, including:
+
+- repository
+- commit
+- user
+- issue
+- pull_request
+- branch_commit_relation
+- commit_file
+- commit_parent
+- repository_language
+- repository_clone
+- repo_collaborator
+- issue_closed_history
+- issue_merged
+- issue_referenced
+- user_email
+- page_view
+
+These tables preserve the original GitHub schema and serve as the foundation for all downstream dbt models.
+
+---
+
+## Data Loading Strategy
+
+Fivetran performs automatic incremental synchronization from the GitHub API into BigQuery.
+
+The project intentionally stores only **raw source data** inside BigQuery.
+
+All business logic, data cleaning, transformations, testing, documentation, and analytics models are implemented in **dbt**, providing a clear separation between data ingestion and data transformation.
+
+This architecture follows modern Analytics Engineering best practices and makes the pipeline easier to maintain, test, and scale.
+
+---
+
+## Data Flow
+
+```text
+GitHub API
+      ↓
+Fivetran
+      ↓
+BigQuery (github_data)
+      ↓
+dbt Staging Models
+      ↓
+dbt Intermediate Models
+      ↓
+dbt Mart Models
+      ↓
+Looker Studio Dashboard
+```
+
+---
+
+## Why BigQuery?
+
+Google BigQuery was selected because it provides:
+
+- Serverless cloud data warehouse
+- High-performance analytical queries
+- Automatic scalability
+- Native integration with Fivetran and dbt
+- Reliable foundation for Analytics Engineering workflows
+
+---
+
+## Screenshot: BigQuery Dataset
+
+The `github_data` dataset stores raw GitHub data synchronized from the GitHub API through Fivetran.
+
+![BigQuery Dataset](images/bigquery_dataset.png)
+
+---
+
+## Screenshot: Raw GitHub Tables
+
+The dataset contains raw GitHub tables automatically synchronized from the GitHub API. These tables remain unchanged and serve as the source layer for all dbt transformations.
+
+![Raw GitHub Tables](images/bigquery_raw_tables.png)
+
+
+
 
 
 ## Data Quality & Testing
