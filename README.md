@@ -33,7 +33,7 @@ The analytical models provide repository performance insights through the follow
 
 ## Architecture
 
-The project follows a modern layered dbt architecture that separates data transformations into three logical layers.
+The dbt project follows a layered architecture that separates transformations into staging, intermediate, and marts layers. This approach improves modularity, maintainability, and reusability of analytical models.
 
 
 ![Architecture](images/architecture.png)
