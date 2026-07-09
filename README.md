@@ -92,53 +92,6 @@ The project is organized using dbt best practices with separate staging, interme
 ```
 
 
-## Data Models
-
-
-
-### Staging Layer
-
-
-The staging layer standardizes raw GitHub data from BigQuery sources. These models clean column names, select relevant fields, and prepare raw data for downstream transformations.
-
-
-| Model | Purpose |
-|------|---------|
-| `stg_github__repositories` | Standardizes repository metadata |
-| `stg_github__commit` | Standardizes commit records |
-| `stg_github__user` | Standardizes GitHub user data |
-
-
-
-### Intermediate Layer
-
-
-The intermediate layer contains reusable transformation logic used by final marts.
-
-
-| Model | Purpose |
-|------|---------|
-| `int_github__commit_activity` | Prepares commit activity data for fact models |
-| `int_github__repository_stats` | Prepares repository statistics for downstream marts |
-
-
-
-### Marts Layer
-
-
-The marts layer contains final analytics-ready models used for reporting.
-
-
-| Model | Type | Purpose |
-|------|------|---------|
-| `dim_github__repositories` | Dimension | Repository attributes |
-| `dim_github__user` | Dimension | GitHub user attributes |
-| `fct_daily_repo_stats` | Fact | Daily repository-level statistics |
-| `fct_github_commit_activity` | Fact | Commit activity by repository, author, and date |
-| `fct_github_commit_activity_7d` | Fact | Seven-day rolling commit activity |
-| `fct_repo_activity_daily` | Fact | Daily repository activity metrics |
-
-
 
 # Step 1: Data Ingestion with Fivetran
 
@@ -292,7 +245,7 @@ These tables remain unchanged and serve as the source layer for all dbt transfor
 
 ## Screenshot: dbt Models in BigQuery
 
-After the raw GitHub data is loaded into BigQuery, dbt builds analytics-ready models inside the `dbt_imykoliv` dataset.
+After the raw GitHub data is loaded into BigQuery, dbt builds analytics-ready models inside dataset.
 
 The models are organized into three logical layers:
 
@@ -313,6 +266,56 @@ This layered approach follows dbt best practices and provides a clean semantic l
 dbt was used to transform raw GitHub data into clean, tested, and analytics-ready models following Analytics Engineering best practices.
 
 The project implements a layered architecture that separates data transformations into staging, intermediate, and marts layers, improving modularity, maintainability, and scalability.
+
+
+
+## Data Models
+
+
+
+### Staging Layer
+
+
+The staging layer standardizes raw GitHub data from BigQuery sources. These models clean column names, select relevant fields, and prepare raw data for downstream transformations.
+
+
+| Model | Purpose |
+|------|---------|
+| `stg_github__repositories` | Standardizes repository metadata |
+| `stg_github__commit` | Standardizes commit records |
+| `stg_github__user` | Standardizes GitHub user data |
+
+
+
+### Intermediate Layer
+
+
+The intermediate layer contains reusable transformation logic used by final marts.
+
+
+| Model | Purpose |
+|------|---------|
+| `int_github__commit_activity` | Prepares commit activity data for fact models |
+| `int_github__repository_stats` | Prepares repository statistics for downstream marts |
+
+
+
+### Marts Layer
+
+
+The marts layer contains final analytics-ready models used for reporting.
+
+
+| Model | Type | Purpose |
+|------|------|---------|
+| `dim_github__repositories` | Dimension | Repository attributes |
+| `dim_github__user` | Dimension | GitHub user attributes |
+| `fct_daily_repo_stats` | Fact | Daily repository-level statistics |
+| `fct_github_commit_activity` | Fact | Commit activity by repository, author, and date |
+| `fct_github_commit_activity_7d` | Fact | Seven-day rolling commit activity |
+| `fct_repo_activity_daily` | Fact | Daily repository activity metrics |
+
+
 
 ## Data Quality & Testing
 
@@ -412,11 +415,11 @@ Connecting dbt Cloud to GitHub provides several advantages:
 
 ---
 
-## 💡 Lessons Learned
+## 💡 Lessons Tips
 
 One of the biggest challenges during this project was connecting dbt Cloud to GitHub.
 
-At first, I assumed this setup would be difficult and expected ChatGPT to provide all the necessary steps. However, I quickly realized that the **official dbt documentation** was the most reliable resource for configuring authentication and repository integration.
+At first, I assumed this setup would be difficult and AI will help me to provide all the necessary steps. However, I quickly realized that the **official dbt documentation** was the most reliable resource for configuring authentication and repository integration.
 
 This experience reinforced an important lesson:
 
@@ -441,7 +444,7 @@ The final analytics-ready dbt mart models are connected directly to Looker Studi
 
 ## 🔗 Live Dashboard
 
-🚀 **[Open Looker Studio Dashboard](https://datastudio.google.com/reporting/7478f0af-71f2-464e-accb-4e4e010b19a9)**
+🚀 **[Open Looker Studio Dashboard](https://datastudio.google.com/reporting/7478f0af-71f2-464e-accb-4e4e010b19a9)** 
 
 ---
 
